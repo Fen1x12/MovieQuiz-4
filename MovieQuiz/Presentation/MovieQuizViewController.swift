@@ -117,6 +117,11 @@ final class MovieQuizViewController: UIViewController {
             self.show(quiz: viewModel)
         }
         
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+            self.showNextQuestionOrResults()
+        }
+        
         alert.addAction(action)
         
         self.present(alert, animated: true, completion: nil)
