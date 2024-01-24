@@ -1,6 +1,7 @@
 import UIKit
 
 final class MovieQuizViewController: UIViewController {
+    
 
         
     @IBOutlet private weak var counterLabel: UILabel!
@@ -10,22 +11,25 @@ final class MovieQuizViewController: UIViewController {
     @IBOutlet private weak var yesBottun: UIButton!
     @IBOutlet private weak var noBottun: UIButton!
     
+    private var correctAnswers: Int = 0
+    
+    private var currentQuestionIndex: Int = 0
+    private let questionsAmount: Int = 10
+    private var questionFactory: QuestionFactory = QuestionFactory()
+    private var currentQuestion: QuizQuestion?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        yesBottun.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
-        noBottun.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
-        questionTitleLabel.font = UIFont(name: "YSDisplay-Medium", size: 20)
-        questionLabel.font = UIFont(name: "YSDisplay-Bold", size: 23)
-        counterLabel.font = UIFont(name: "YSDisplay-Medium", size: 20)
         
-        imageView.layer.masksToBounds = true
-        imageView.layer.borderWidth = 8
         imageView.layer.cornerRadius = 20
-        imageView.layer.borderColor = UIColor.ypBlack.cgColor
-        
         let currentQuestion = questions[currentQuestionIndex]
         show(quiz: convert(model: currentQuestion))
         
+    }
+    if let firstQuestion = questionFactory.requestNextQuestion() {
+        currentQuestion = firstQuestion
+        let viweModel = convert(model: firstQuestion)
+        show(quiz: viweModel)
     }
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
