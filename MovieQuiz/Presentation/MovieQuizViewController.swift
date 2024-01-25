@@ -20,7 +20,7 @@ final class MovieQuizViewController: UIViewController {
         yesBottun.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
         noBottun.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
         questionLabel.font = UIFont(name: "YSDisplay-Medium", size: 20)
-        textLabel.font = UIFont(name: "YSDisplay-Bold", size: 23)
+        questionTitleLabel.font = UIFont(name: "YSDisplay-Bold", size: 23)
         counterLabel.font = UIFont(name: "YSDisplay-Medium", size: 20)
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
@@ -43,13 +43,13 @@ final class MovieQuizViewController: UIViewController {
             self?.show(quiz: viewModel)
         }
     }
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     private func show(quiz step: QuizStepViewModel){
         imageView.image = step.image
-        textLabel.text = step.question
+        questionTitleLabel.text = step.question
         counterLabel.text = step.questionNumber
         imageView.layer.borderColor = UIColor.clear.cgColor
     }
@@ -112,7 +112,7 @@ final class MovieQuizViewController: UIViewController {
         
         self.present(alert, animated:  true, completion: nil)
     }
-
+    
     @IBAction private func yesBottunClecked(_ sender: Any) {
         guard let currentQuestion = currentQuestion else{
             return
