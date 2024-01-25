@@ -13,8 +13,8 @@ final class MovieQuizViewController: UIViewController {
     private var correctAnswers: Int = 0
     
     private let questionsAmount: Int = 10
-    private var currentQuestion: QuizQuestion?
     private var questionFactory: QuestionFactory = QuestionFactory()
+    private var currentQuestion: QuizQuestion?
     
     override func viewDidLoad() {
         yesBottun.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
