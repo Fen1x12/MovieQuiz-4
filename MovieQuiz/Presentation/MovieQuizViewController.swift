@@ -1,6 +1,10 @@
 import UIKit
 
-final class MovieQuizViewController: UIViewController {
+final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
+    func didReceiveNextQuestion(question: QuizQuestion) {
+        
+    }
+    
     //MARK: - Lifecycle
     @IBOutlet private weak var counterLabel: UILabel!
     @IBOutlet private weak var questionLabel: UILabel!
@@ -26,7 +30,11 @@ final class MovieQuizViewController: UIViewController {
         imageView.clipsToBounds = true
         
         questionFactory.delegate = self
-        questionFactory.requestNextQuestion()
+        if let firstQuestion = questionFactory.requestNextQuestion() {
+            currentQuestion = firstQuestion
+            let viewModel = convert(model: firstQuestion)
+            show(quiz: viewModel)
+        }
         
         
         super.viewDidLoad()
@@ -84,7 +92,9 @@ final class MovieQuizViewController: UIViewController {
         yesBottun.isEnabled = true
         noBottun.isEnabled = true
         if currentQuestionIndex == questionsAmount - 1 {
-            let text = "Ваш результат: \(correctAnswers)/10"
+            let text = correctAnswers == questionsAmount ?
+                    "Поздравляем, вы ответили на 10 из 10!" :
+                    "Вы ответили на \(correctAnswers) из 10, попробуйте ещё раз!"
             let viewModel = QuizResultsViewModel(
                 title: "Этот раунд окончен!",
                 text: text,
@@ -92,7 +102,12 @@ final class MovieQuizViewController: UIViewController {
             show(quiz: viewModel)
         } else {
             currentQuestionIndex += 1
-            self.questionFactory.requestNextQuestion()
+            //self.questionFactory.requestNextQuestion()
+            if let nextQuestion = questionFactory.requestNextQuestion() {
+                currentQuestion = nextQuestion
+                let viewModel = convert(model: nextQuestion)
+                show(quiz: viewModel)
+            }
         }
     }
     
@@ -105,7 +120,12 @@ final class MovieQuizViewController: UIViewController {
             else { return }
             self.currentQuestionIndex = 0
             self.correctAnswers = 0
-            questionFactory.requestNextQuestion()
+            //questionFactory.requestNextQuestion()
+            if let firstQuestion = questionFactory.requestNextQuestion() {
+                currentQuestion = firstQuestion
+                let viewModel = convert(model: firstQuestion)
+                show(quiz: viewModel)
+            }
         }
         
         alert.addAction(action)
