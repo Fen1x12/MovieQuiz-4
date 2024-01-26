@@ -2,6 +2,9 @@ import Foundation
 
 
 class QuestionFactory: QuestionFactoryProtocol{
+    func requestNextQuestion() {
+        
+    }
     
     
     weak var delegate: QuestionFactoryDelegate?

@@ -105,7 +105,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
             //self.questionFactory.requestNextQuestion()
             if let nextQuestion = questionFactory.requestNextQuestion() {
                 currentQuestion = nextQuestion
-                let viewModel = convert(model: nextQuestion)
+                let viewModel = convert(model: firstQuestion)
                 show(quiz: viewModel)
             }
         }
@@ -121,8 +121,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
             self.currentQuestionIndex = 0
             self.correctAnswers = 0
             //questionFactory.requestNextQuestion()
-            if let firstQuestion = questionFactory.requestNextQuestion() {
-                currentQuestion = firstQuestion
+            if let nextQuestion = questionFactory.requestNextQuestion() {
+                currentQuestion = nextQuestion
                 let viewModel = convert(model: firstQuestion)
                 show(quiz: viewModel)
             }
