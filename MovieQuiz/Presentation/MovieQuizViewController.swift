@@ -19,7 +19,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     @IBOutlet private weak var questionTitleLabel: UILabel!
     @IBOutlet private weak var yesBottun: UIButton!
     @IBOutlet private weak var noBottun: UIButton!
-
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         yesBottun.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
@@ -76,17 +76,17 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     
     private func show(quiz result: QuizResultsViewModel) {
         let alertModel = AlertModel(
-                    title: result.title,
-                    message: result.text,
-                    buttonText: result.buttonText,
-                    buttonAction: { [weak self] in
-                        guard let self = self else { return }
-                        self.currentQuestionIndex = 0
-                        self.correctAnswers = 0
-                        self.questionFactory?.requestNextQuestion()
-                    }
-                )
-                alertPresenter?.show(alertModel: alertModel)
+            title: result.title,
+            message: result.text,
+            buttonText: result.buttonText,
+            buttonAction: { [weak self] in
+                guard let self = self else { return }
+                self.currentQuestionIndex = 0
+                self.correctAnswers = 0
+                self.questionFactory?.requestNextQuestion()
+            }
+        )
+        alertPresenter?.show(alertModel: alertModel)
     }
     
     private func showAnswerResult(isCorrect: Bool) {
@@ -102,10 +102,10 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     private func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
             statisticService.store(correct: correctAnswers, total: questionsAmount)
-                        let quizCount = statisticService.gamesCount
-                        let bestGame = statisticService.bestGame
-                        let formattedAccuracy = String(format: "%.0f%%", statisticService.totalAccuracy * 100)
-                        let text = """
+            let quizCount = statisticService.gamesCount
+            let bestGame = statisticService.bestGame
+            let formattedAccuracy = String(format: "%.0f%%", statisticService.totalAccuracy * 100)
+            let text = """
                         Ваш результат: \(correctAnswers)/\(questionsAmount)
                         Количество сыгранных квизов: \(quizCount)
                         Рекорд: \(bestGame.correct)/\(bestGame.total) (\(bestGame.date.dateTimeString))
