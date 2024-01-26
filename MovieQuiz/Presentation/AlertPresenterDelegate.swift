@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol AlertPresenterDelegate: AnyObject {
+    func show(alert: UIAlertController)
+}
