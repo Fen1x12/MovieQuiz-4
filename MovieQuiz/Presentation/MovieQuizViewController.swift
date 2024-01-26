@@ -22,8 +22,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
-        yesButton.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
-        noButton.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
+        yesBottun.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
+        noBottun.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
         questionTitleLabel.font = UIFont(name: "YSDisplay-Medium", size: 20)
         questionLabel.font = UIFont(name: "YSDisplay-Bold", size: 23)
         counterLabel.font = UIFont(name: "YSDisplay-Medium", size: 20)
