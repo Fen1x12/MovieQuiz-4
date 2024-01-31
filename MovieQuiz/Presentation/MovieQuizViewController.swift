@@ -128,7 +128,10 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             return
         }
         let givenAnswer = true
-        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        let isCorrect = givenAnswer == currentQuestion.correctAnswer
+        statisticService.corectAnswerAll += isCorrect ? 1 : 0
+        statisticService.totalAnswerAll += 1
+        showAnswerResult(isCorrect: isCorrect)
     }
     
     @IBAction private func noBottun(_ sender: Any) {
@@ -136,8 +139,11 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             return
         }
         let givenAnswer = false
+        let isCorrect = givenAnswer == currentQuestion.correctAnswer
+        statisticService.corectAnswerAll += isCorrect ? 1 : 0
+        statisticService.totalAnswerAll += 1
         
-        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        showAnswerResult(isCorrect: isCorrect)
     }
     
     
