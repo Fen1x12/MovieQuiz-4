@@ -10,6 +10,7 @@
 		842AD5F52B74C9C00067B951 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AD5F42B74C9C00067B951 /* NetworkClient.swift */; };
 		842AD5F72B74CEAD0067B951 /* MostPopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AD5F62B74CEAD0067B951 /* MostPopularMovies.swift */; };
 		842AD5F92B74D0620067B951 /* MoviesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AD5F82B74D0620067B951 /* MoviesLoader.swift */; };
+		842AD5FB2B7506910067B951 /* Float+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AD5FA2B7506910067B951 /* Float+Extensions.swift */; };
 		8497D12C2B4AFEA400D8BE7F /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8497D12B2B4AFEA400D8BE7F /* YS Display-Medium.ttf */; };
 		8497D12E2B4AFEC700D8BE7F /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8497D12D2B4AFEC700D8BE7F /* YS Display-Bold.ttf */; };
 		84AFC3722B611E5600147CD4 /* QuestionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFC3712B611E5600147CD4 /* QuestionFactory.swift */; };
@@ -40,6 +41,7 @@
 		842AD5F42B74C9C00067B951 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		842AD5F62B74CEAD0067B951 /* MostPopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularMovies.swift; sourceTree = "<group>"; };
 		842AD5F82B74D0620067B951 /* MoviesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesLoader.swift; sourceTree = "<group>"; };
+		842AD5FA2B7506910067B951 /* Float+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extensions.swift"; sourceTree = "<group>"; };
 		8497D12B2B4AFEA400D8BE7F /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
 		8497D12D2B4AFEC700D8BE7F /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		84AFC3712B611E5600147CD4 /* QuestionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFactory.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				AD5EE5DD284D7887003966EF /* UIColor+Extensions.swift */,
 				AD7AFA542836189F00399704 /* Array+Extensions.swift */,
 				AD77F5732857F8810062FB14 /* Date+Extensions.swift */,
+				842AD5FA2B7506910067B951 /* Float+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				84AFC3812B63E5B400147CD4 /* AlertPresentr.swift in Sources */,
 				842AD5F72B74CEAD0067B951 /* MostPopularMovies.swift in Sources */,
 				84AFC3892B63E8D100147CD4 /* GameRecord.swift in Sources */,
+				842AD5FB2B7506910067B951 /* Float+Extensions.swift in Sources */,
 				84AFC3872B63E87D00147CD4 /* StatisticService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
