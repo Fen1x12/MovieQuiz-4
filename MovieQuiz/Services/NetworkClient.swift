@@ -1,17 +1,14 @@
-//
-//  NetworkClient.swift
-//  MovieQuiz
-//
-//  Created by  Admin on 08.02.2024.
-//
-
 import Foundation
+
+enum NetworkError: Error {
+    case codeError
+    case apiKeyError
+    case imageError
+}
 
 struct NetworkClient {
 
-    private enum NetworkError: Error {
-        case codeError
-    }
+
     
     func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) {
         let request = URLRequest(url: url)
@@ -21,7 +18,6 @@ struct NetworkClient {
                 handler(.failure(error))
                 return
             }
-            
             if let response = response as? HTTPURLResponse,
                 response.statusCode < 200 || response.statusCode >= 300 {
                 handler(.failure(NetworkError.codeError))

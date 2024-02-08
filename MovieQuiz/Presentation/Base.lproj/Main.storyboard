@@ -106,17 +106,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wBK-ml-rdb">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
                             <constraint firstItem="OgZ-oy-GWk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="8c7-QX-HM9"/>
                             <constraint firstItem="OgZ-oy-GWk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mom-mm-rN7"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PTf-lr-HcQ"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rru-yH-RJM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OgZ-oy-GWk" secondAttribute="bottom" id="bB6-kp-eEh"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cKl-Oo-LKH"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="i5f-Ax-1L7"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="syH-Lp-o9D"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OgZ-oy-GWk" secondAttribute="trailing" constant="20" id="xeA-1b-USh"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zeQ-H4-w0z"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="wBK-ml-rdb" id="bOV-Oi-f6C"/>
                         <outlet property="counterLabel" destination="OQn-xv-imr" id="W3O-Nn-zqU"/>
                         <outlet property="imageView" destination="O5l-qf-KhX" id="UM2-Tr-ZcJ"/>
                         <outlet property="noBottun" destination="NZk-EI-KeD" id="WQJ-3a-lZG"/>
