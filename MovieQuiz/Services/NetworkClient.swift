@@ -1,15 +1,17 @@
 import Foundation
 
-enum NetworkError: Error {
-    case codeError
-    case apiKeyError
-    case imageError
+protocol NetworkRouting {
+    func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void)
 }
 
-struct NetworkClient {
+struct NetworkClient: NetworkRouting {
 
+    private enum NetworkError: Error {
+        case codeError
+        case apiKeyError
+        case imageError
+    }
 
-    
     func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) {
         let request = URLRequest(url: url)
         
