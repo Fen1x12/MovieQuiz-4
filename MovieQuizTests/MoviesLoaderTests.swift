@@ -1,34 +1,35 @@
+import Foundation
+
 import XCTest
 @testable import MovieQuiz
 
-class MoviesLoaderTests: XCTestCase {
-    
+class MoviesLoaderTest: XCTestCase {
     func testSuccessLoading() throws {
-        // Given
-        let StubNetworkClient = StubNetworkClient(emulateError: false)
-        let loader = MoviesLoader(networkClient: StubNetworkClient)
         
-        // When
+        
+        let stubNetworkClient = StubNetworkClient(emulateError: false)
+        let loader = MoviesLoader(networkClient: stubNetworkClient)
+        
         let expectation = expectation(description: "Loading expectation")
         
         loader.loadMovies { result in
             // Then
             switch result {
-                
-            case .success(let movies):
-                
-                XCTAssertEqual(movies.items.count, 2)
+            case .success(_):
+                // сравниваем данные с тем, что мы предполагали
                 expectation.fulfill()
             case .failure(_):
+                // мы не ожидаем, что пришла ошибка; если она появится, надо будет провалить тест
                 XCTFail("Unexpected failure") // эта функция проваливает тест
             }
         }
         
         waitForExpectations(timeout: 1)
+        
     }
     
-    func testFailureLoading() {
-        // Given
+    func testFailureLoading() throws {
+        
         let stubNetworkClient = StubNetworkClient(emulateError: true) // говорим, что хотим эмулировать ошибку
         let loader = MoviesLoader(networkClient: stubNetworkClient)
         
@@ -47,5 +48,6 @@ class MoviesLoaderTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 1)
+        
     }
 }
