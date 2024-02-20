@@ -163,7 +163,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             questionFactory?.requestNextQuestion()
         }
     }
-    
     @IBAction private func yesBottunClecked(_ sender: Any) {
         guard let currentQuestion = currentQuestion else{
             return

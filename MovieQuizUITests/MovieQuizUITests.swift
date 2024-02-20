@@ -67,28 +67,17 @@ final class MovieQuizUITests: XCTestCase {
         XCTAssertNotEqual(firstQuestion, secondQuestion)
     }
     
-    func testGameAlert() {
-        let yesButton = app.buttons["Yes"]
-        let noButton = app.buttons["No"]
-        let numberOfTaps: UInt8 = 10
-        let alert = app.alerts["Game result"]
-        
-        sleep(2)
-        
-        for _ in 1...numberOfTaps {
-            let random = arc4random_uniform(2)
-            if random == 0 {
-                noButton.tap()
-                print("Tapped on No button")
-            } else {
-                yesButton.tap()
-                print("Tapped on Yes button")
-            }
-            sleep(2)
+    func testGameFinish() {
+        sleep(3)
+        for _ in 1...10 {
+            app.buttons["No"].tap()
+            sleep(3)
         }
+        
+        let alert = app.alerts["Game results"]
         
         XCTAssertTrue(alert.exists)
         XCTAssertTrue(alert.label == "Этот раунд окончен!")
-        XCTAssertTrue(alert.buttons.firstMatch.label == "Сыграть ещё раз")
+        XCTAssertTrue(alert.buttons.firstMatch.label == "Сыграть еще раз")
     }
 }
