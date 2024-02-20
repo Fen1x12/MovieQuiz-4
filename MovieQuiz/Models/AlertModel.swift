@@ -1,15 +1,9 @@
-//
-//  AlertModel.swift
-//  MovieQuiz
-//
-//  Created by  Admin on 26.01.2024.
-//
-import UIKit
+import Foundation
 
 struct AlertModel {
     let title: String
     let message: String
     let buttonText: String
-    let completion: ((UIAlertAction) -> Void)?
+    
+    let completion: () -> Void
 }
-
