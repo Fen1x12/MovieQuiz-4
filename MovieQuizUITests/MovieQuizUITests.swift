@@ -26,7 +26,7 @@ final class MovieQuizUITests: XCTestCase {
     }
     
     func testYesButton() {
-        sleep(2 )
+        sleep(2)
         
         let firstPoster = app.images["Poster"]
         let firstPosterData = firstPoster.screenshot().pngRepresentation
@@ -68,10 +68,10 @@ final class MovieQuizUITests: XCTestCase {
     }
     
     func testGameFinish() {
-        sleep(3)
+        sleep(2)
         for _ in 1...10 {
             app.buttons["No"].tap()
-            sleep(3)
+            sleep(4)
         }
         
         let alert = app.alerts["Game results"]
