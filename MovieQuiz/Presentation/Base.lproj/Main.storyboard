@@ -39,6 +39,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQn-xv-imr" userLabel="Index Label">
                                                 <rect key="frame" x="338" y="0.0" width="36" height="23.5"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="index"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="YP White"/>
                                                 <nil key="highlightedColor"/>
@@ -48,12 +49,14 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O5l-qf-KhX" userLabel="Preview Image">
                                         <rect key="frame" x="0.0" y="42.5" width="374" height="561"/>
                                         <color key="backgroundColor" name="YP White"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Poster"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="O5l-qf-KhX" secondAttribute="height" multiplier="2:3" id="MwM-37-p69"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг этого фильма меньше чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNl-ZS-eKy" userLabel="Question Label">
                                         <rect key="frame" x="0.0" y="622.5" width="374" height="102.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="question"/>
                                         <fontDescription key="fontDescription" name="YSDisplay-Bold" family="YS Display" pointSize="19"/>
                                         <color key="textColor" name="YP White"/>
                                         <nil key="highlightedColor"/>
@@ -64,6 +67,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZk-EI-KeD" userLabel="No Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
                                                 <color key="backgroundColor" name="YP White"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="No"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="нет">
@@ -75,12 +79,13 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="noBottun:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tyE-mU-XU6"/>
+                                                    <action selector="noButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tbr-0Y-cUb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnF-Z3-IJK" userLabel="Yes Button">
                                                 <rect key="frame" x="197" y="0.0" width="177" height="60"/>
                                                 <color key="backgroundColor" name="YP White"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Yes"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="itH-IR-6t9"/>
                                                 </constraints>
@@ -95,7 +100,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="yesBottunClecked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9SW-vS-TgE"/>
+                                                    <action selector="yesButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EsL-yw-QnX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -106,17 +111,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wBK-ml-rdb">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
                             <constraint firstItem="OgZ-oy-GWk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="8c7-QX-HM9"/>
                             <constraint firstItem="OgZ-oy-GWk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mom-mm-rN7"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PTf-lr-HcQ"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rru-yH-RJM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OgZ-oy-GWk" secondAttribute="bottom" id="bB6-kp-eEh"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cKl-Oo-LKH"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="i5f-Ax-1L7"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="syH-Lp-o9D"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OgZ-oy-GWk" secondAttribute="trailing" constant="20" id="xeA-1b-USh"/>
+                            <constraint firstItem="wBK-ml-rdb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zeQ-H4-w0z"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="wBK-ml-rdb" id="bOV-Oi-f6C"/>
                         <outlet property="counterLabel" destination="OQn-xv-imr" id="W3O-Nn-zqU"/>
                         <outlet property="imageView" destination="O5l-qf-KhX" id="UM2-Tr-ZcJ"/>
                         <outlet property="noBottun" destination="NZk-EI-KeD" id="WQJ-3a-lZG"/>
@@ -132,10 +147,10 @@
     </scenes>
     <resources>
         <namedColor name="YP Black">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="YP White">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
